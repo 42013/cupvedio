@@ -1,17 +1,134 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>视频页</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .cube-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .cube {
+        text-align: center;
+    }
+
+    .region {
+        width: 100px;
+        height: 100px;
+        border: 10px solid #9effc5;
+        margin: 10px;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    #dateInfo {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: rgba(255, 255, 255, 0.7);
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    /* 添加图片容器样式 */
+    #imageContainer {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 999; /* 确保它显示在其他内容之上 */
+    }
+
+    /* 添加图片样式 */
+    .toggleImage {
+        width: 40px;
+        height: 40px;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div class="cube-container">
+    <div class="cube">
+        <div class="region" id="region1" onclick="changeColor('region1')">区域 1</div>
+        <div class="region" id="region2" onclick="changeColor('region2')">区域 2</div>
+        <div class="region" id="region3" onclick="changeColor('region3')">区域 3</div>
+    </div>
+</div>
+<div id="dateInfo"></div>
+<!-- 添加图片容器 -->
+<!-- <div id="imageContainer">
+    <!-- 这里不需要图片元素，因为背景图已经设置在 body 上 -->
+</div> -->
+<button onclick="toggleBackgroundImage()" style="background-color: red; color: white;">切换背景图</button>
+
+<script>
+	
+    var currentImageIndex = 1; // 当前背景图索引
+    var backgroundImages = ['./img/cloudcrossthetree.jpg', './img/forest.jpg', './img/bluerise.jpg']; // 背景图数组
+
+    // 切换背景图函数
+    function toggleBackgroundImage() {
+        currentImageIndex = (currentImageIndex + 1) % backgroundImages.length; // 循环切换背景图索引
+        document.body.style.backgroundImage = "url('" + backgroundImages[currentImageIndex] + "')"; // 设置新的背景图
+    }
+
+    // 改变区域颜色函数
+    function changeColor(regionId) {
+        var region = document.getElementById(regionId);
+        var currentColor = window.getComputedStyle(region).getPropertyValue('background-color');
+        var newColor = getRandomColor();
+        while (currentColor === newColor) {
+            newColor = getRandomColor();
+        }
+        region.style.backgroundColor = newColor;
+    }
+
+    // 生成随机颜色函数
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    // 获取当前日期
+    var today = new Date();
+        var year = today.getFullYear();
+    
+        // Check if it's a leap year
+        var isLeapYear = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    
+        // Display leap year info
+        if (isLeapYear) {
+            document.getElementById('dateInfo').innerHTML = year + " 是闰年!";
+        } else {
+            document.getElementById('dateInfo').innerHTML = year + " 不是闰年!";
+        }
+    
+        // Get the week number of the year
+        var onejan = new Date(year, 0, 1);
+        var weekNumber = Math.ceil((((today - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+    
+        // Display week number info
+        var currentTime = today.toLocaleString();
+        document.getElementById('dateInfo').innerHTML += "<br>当前时间: " + currentTime + ".";
+        document.getElementById('dateInfo').innerHTML += "<br>当前是本年的第 " + weekNumber + " 周.";
+</script>
+</body>
 </html>
