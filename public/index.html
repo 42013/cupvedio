@@ -14,7 +14,7 @@
             font-family: Arial, sans-serif;
         }
         .container {
-			transform: scale(0.7);
+			transform: scale(0.5);
 			transform-origin: top;
             text-align: center;
             max-width: 3000px;
@@ -87,15 +87,15 @@
         </div>
     </div>
 	<script>
-	  // document.addEventListener('mousewheel', function (event) {
-	  //         event = event || window.event;
-	  //         if ((event.wheelDelta && event.ctrlKey)) {
-	  //             event.preventDefault();
-	  //         }
-	  //     }, {
-	  //         capture: false,
-	  //         passive: false
-	  //     });
+	  document.addEventListener('mousewheel', function (event) {
+	          event = event || window.event;
+	          if ((event.wheelDelta && event.ctrlKey)) {
+	              event.preventDefault();
+	          }
+	      }, {
+	          capture: false,
+	          passive: false
+	      });
 	</script>
 
 </body>
