@@ -1,49 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<title>视频主页</title>
-<style>
-	h3 {
-		font-size: 24px;
-		font-weight: bold;
-		color: white;
-	}
-</style>	
-</head>
-<body style="background-color: black;">
-<div class="zxnav">
-  <header class="clearfix"> <a href="#" class="logo"><img src="img/logo0.webp"/></a>
-    <ul>
-      <li><a href="https://cup-2cq.pages.dev/">官网首页</a></li>
-	  <div class="current">
-		  <h3>当前赛事</h3>
-      <li>
-		 <li><a href="cube_match.html">魔方机器人</a>  </li>
-      </li>
-      <li>
-          <li><a href="Ring_robots.html">武术擂台机器人</a>  </li>
-        </li>
-		<li>
-		   <li><a href="crane.html">起重机</a></li>
-		</li>
-		</div>
-		<div class="past">
-			 <h3>本届已获荣誉</h3>
-		 <li><a href="Work_training.html">工训赛</a>
-			 <ul>
-				<li>垃圾桶</li>
-				<li>物流搬运</li>
-			 </ul>
-		 </li>
-		 </div>
-    </ul>
-  </header>
-</div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=0.7, user-scalable=0">
+    <title>视频主页</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            max-width: 3000px;
+            margin: auto;
+        }
+        .logo {
+            margin-bottom: 20px;
+        }
+        .nav {
+            margin-bottom: 20px;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        .content {
+            margin: 0 auto;
+        }
 
-  <marquee οnmοuseοver='this.stop()' οnmοuseοut='this.start()' direction="up" behavior="scroll" scrollamount="1" scrolldelay="0" loop="-1" width="1200" height="50" bgcolor="#ff5d9b" hspace="10" vspace="10">
-	备赛期间，仅上传视频部分视频，更多资讯将在以后发布
-  </marquee>
-</div>
+        .marquee-container {
+            margin-top: 20px;
+            background-color: #ff69b4;
+            color: white;
+            width: 100%;
+        }
+        .marquee {
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            0%   { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="img/logo0.webp" alt="Logo">
+        </div>
+        <div class="nav">
+            <a href="https://cup-2cq.pages.dev/">官网首页</a>
+            <a href="cube_match.html">魔方机器人</a>
+            <a href="Ring_robots.html">武术擂台机器人</a>
+            <a href="crane.html">起重机</a>
+            <a href="Work_training.html">工训赛</a>
+        </div>
+		<div>
+			<div style="float: left;"><img src="./img/cube_view.webp" width="1000" height="800" class="active"></div>
+            <img src="./img/robot.webp" width="1000" height="800">
+		</div>
+		<div>
+			<img src="./img/carn.webp" width="1000" height="800">
+			<img src="./img/work.webp" width="1000" height="800">
+		</div>
+        <div class="marquee-container">
+            <div class="marquee">
+                <span>备赛期间，仅上传视频部分视频，更多资讯将在以后发布</span>
+            </div>
+        </div>
+    </div>
+	<script>
+	  document.addEventListener('mousewheel', function (event) {
+	          event = event || window.event;
+	          if ((event.wheelDelta && event.ctrlKey)) {
+	              event.preventDefault();
+	          }
+	      }, {
+	          capture: false,
+	          passive: false
+	      });
+	</script>
+
 </body>
 </html>
