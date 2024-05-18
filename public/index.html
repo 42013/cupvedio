@@ -2,7 +2,6 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=0.5, user-scalable=0">
     <title>视频主页</title>
     <style>
         body {
@@ -15,6 +14,8 @@
             font-family: Arial, sans-serif;
         }
         .container {
+			transform: scale(0.7);
+			transform-origin: top;
             text-align: center;
             max-width: 3000px;
             margin: auto;
@@ -29,7 +30,8 @@
             text-decoration: none;
             color: #333;
             margin: 0 15px;
-            font-size: 18px;
+            font-size: 45px;
+			background-color: azure;
         }
         .content {
             margin: 0 auto;
@@ -71,7 +73,7 @@
             <a href="Work_training.html">工训赛</a>
         </div>
 		<div>
-			<div style="float: left;"><img src="./img/cube_view.webp" width="1000" height="800" class="active"></div>
+			<img src="./img/cube_view.webp" width="1000" height="800" class="active">
             <img src="./img/robot.webp" width="1000" height="800">
 		</div>
 		<div>
@@ -80,20 +82,20 @@
 		</div>
         <div class="marquee-container">
             <div class="marquee">
-                <span>备赛期间，仅上传视频部分视频，更多资讯将在以后发布</span>
+                <span><h1>备赛期间，仅上传视频部分视频，更多资讯将在以后发布</h1></span>
             </div>
         </div>
     </div>
 	<script>
-	  document.addEventListener('mousewheel', function (event) {
-	          event = event || window.event;
-	          if ((event.wheelDelta && event.ctrlKey)) {
-	              event.preventDefault();
-	          }
-	      }, {
-	          capture: false,
-	          passive: false
-	      });
+	  // document.addEventListener('mousewheel', function (event) {
+	  //         event = event || window.event;
+	  //         if ((event.wheelDelta && event.ctrlKey)) {
+	  //             event.preventDefault();
+	  //         }
+	  //     }, {
+	  //         capture: false,
+	  //         passive: false
+	  //     });
 	</script>
 
 </body>
