@@ -87,7 +87,166 @@
                 }
             });
 
+            speedButton.addEventListener("click", function() {<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>擂台比赛</title>
+    <style>
+        body {
+            background-color: antiquewhite;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        #video-container, #video-container1 {
+            position: relative;
+            max-width: 1200px;
+            margin: 20px auto;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #video-controls, #video-controls1 {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+        }
+        button {
+            margin: 0 10px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+	<a href="https://cup-2cq.pages.dev/">官网首页</a>
+    <a href="index.html">视频首页</a>
+    <div id="video-container">
+        <h1>擂台一组</h1>
+        <video id="video" controls>
+            <source src="./img/cube.mp4" type="video/mp4">
+            你的浏览器不支持浏览
+        </video>
+        <div id="video-controls">
+            <button id="play-pause">开始</button>
+            <button id="speed">速度: 1x</button>
+            <button id="fullscreen">全屏</button>
+        </div>
+    </div>
+    
+    <div id="video-container1">
+        <h1>擂台二组</h1>
+        <video id="video1" controls>
+            <source src="./img/cube.mp4" type="video/mp4">
+            你的浏览器不支持浏览
+        </video>
+        <div id="video-controls1">
+            <button id="play-pause1">开始</button>
+            <button id="speed1">速度: 1x</button>
+            <button id="fullscreen1">全屏</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var video = document.getElementById("video");
+            var playPauseButton = document.getElementById("play-pause");
+            var speedButton = document.getElementById("speed");
+            var fullscreenButton = document.getElementById("fullscreen");
+
+            playPauseButton.addEventListener("click", function() {
+                if (video.paused || video.ended) {
+                    video.play();
+                    playPauseButton.textContent = "暂停";
+                } else {
+                    video.pause();
+                    playPauseButton.textContent = "开始";
+                }
+            });
+
             speedButton.addEventListener("click", function() {
+                if (video.playbackRate === 1) {
+                    video.playbackRate = 1.5;
+                    speedButton.textContent = "速度: 1.5x";
+                } else {
+                    video.playbackRate = 1;
+                    speedButton.textContent = "速度: 1x";
+                }
+            });
+
+            fullscreenButton.addEventListener("click", function() {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.mozRequestFullScreen) { /* Firefox */
+                    video.mozRequestFullScreen();
+                } else if (video.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) { /* IE/Edge */
+                    video.msRequestFullscreen();
+                }
+            });
+
+            var video1 = document.getElementById("video1");
+            var playPauseButton1 = document.getElementById("play-pause1");
+            var speedButton1 = document.getElementById("speed1");
+            var fullscreenButton1 = document.getElementById("fullscreen1");
+
+            playPauseButton1.addEventListener("click", function() {
+                if (video1.paused || video1.ended) {
+                    video1.play();
+                    playPauseButton1.textContent = "暂停";
+                } else {
+                    video1.pause();
+                    playPauseButton1.textContent = "开始";
+                }
+            });
+
+            speedButton1.addEventListener("click", function() {
+                if (video1.playbackRate === 1) {
+                    video1.playbackRate = 1.5;
+                    speedButton1.textContent = "速度: 1.5x";
+                } else {
+                    video1.playbackRate = 1;
+                    speedButton1.textContent = "速度: 1x";
+                }
+            });
+
+            fullscreenButton1.addEventListener("click", function() {
+                if (video1.requestFullscreen) {
+                    video1.requestFullscreen();
+                } else if (video1.mozRequestFullScreen) { /* Firefox */
+                    video1.mozRequestFullScreen();
+                } else if (video1.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                    video1.webkitRequestFullscreen();
+                } else if (video1.msRequestFullscreen) { /* IE/Edge */
+                    video1.msRequestFullscreen();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
                 if (video.playbackRate === 1) {
                     video.playbackRate = 1.5;
                     speedButton.textContent = "速度: 1.5x";
