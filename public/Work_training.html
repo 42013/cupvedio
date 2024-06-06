@@ -53,7 +53,7 @@
 	<a href="https://cup-2cq.pages.dev/">官网首页</a>
 	<a href="index.html">视频首页</a>
     <div id="video-container">
-        <h1>物流一组</h1>
+        <h1>物流组</h1>
         <video id="video" controls>
             <source src="./img/car.mp4" type="video/mp4">
             你的浏览器不支持浏览
@@ -65,7 +65,7 @@
         </div>
     </div>
     
-    <div id="video-container1">
+ <!--   <div id="video-container1">
         <h1>物流二组</h1>
         <video id="video1" controls>
             <source src="./img/cube.mp4" type="video/mp4">
@@ -76,7 +76,7 @@
             <button id="speed1">速度: 1x</button>
             <button id="fullscreen1">全屏</button>
         </div>
-    </div>
+    </div> -->
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -117,42 +117,42 @@
                 }
             });
 
-            var video1 = document.getElementById("video1");
-            var playPauseButton1 = document.getElementById("play-pause1");
-            var speedButton1 = document.getElementById("speed1");
-            var fullscreenButton1 = document.getElementById("fullscreen1");
+            // var video1 = document.getElementById("video1");
+            // var playPauseButton1 = document.getElementById("play-pause1");
+            // var speedButton1 = document.getElementById("speed1");
+            // var fullscreenButton1 = document.getElementById("fullscreen1");
 
-            playPauseButton1.addEventListener("click", function() {
-                if (video1.paused || video1.ended) {
-                    video1.play();
-                    playPauseButton1.textContent = "暂停";
-                } else {
-                    video1.pause();
-                    playPauseButton1.textContent = "开始";
-                }
-            });
+            // playPauseButton1.addEventListener("click", function() {
+            //     if (video1.paused || video1.ended) {
+            //         video1.play();
+            //         playPauseButton1.textContent = "暂停";
+            //     } else {
+            //         video1.pause();
+            //         playPauseButton1.textContent = "开始";
+            //     }
+            // });
 
-            speedButton1.addEventListener("click", function() {
-                if (video1.playbackRate === 1) {
-                    video1.playbackRate = 1.5;
-                    speedButton1.textContent = "速度: 1.5x";
-                } else {
-                    video1.playbackRate = 1;
-                    speedButton1.textContent = "速度: 1x";
-                }
-            });
+            // speedButton1.addEventListener("click", function() {
+            //     if (video1.playbackRate === 1) {
+            //         video1.playbackRate = 1.5;
+            //         speedButton1.textContent = "速度: 1.5x";
+            //     } else {
+            //         video1.playbackRate = 1;
+            //         speedButton1.textContent = "速度: 1x";
+            //     }
+            // });
 
-            fullscreenButton1.addEventListener("click", function() {
-                if (video1.requestFullscreen) {
-                    video1.requestFullscreen();
-                } else if (video1.mozRequestFullScreen) { /* Firefox */
-                    video1.mozRequestFullScreen();
-                } else if (video1.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-                    video1.webkitRequestFullscreen();
-                } else if (video1.msRequestFullscreen) { /* IE/Edge */
-                    video1.msRequestFullscreen();
-                }
-            });
+            // fullscreenButton1.addEventListener("click", function() {
+            //     if (video1.requestFullscreen) {
+            //         video1.requestFullscreen();
+            //     } else if (video1.mozRequestFullScreen) { /* Firefox */
+            //         video1.mozRequestFullScreen();
+            //     } else if (video1.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            //         video1.webkitRequestFullscreen();
+            //     } else if (video1.msRequestFullscreen) { /* IE/Edge */
+            //         video1.msRequestFullscreen();
+            //     }
+            // });
         });
     </script>
 </body>
